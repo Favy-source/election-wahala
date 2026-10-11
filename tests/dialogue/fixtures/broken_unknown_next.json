@@ -1,0 +1,2 @@
+{"schema_version": 1, "content_status": "placeholder", "speakers": {"officer": {"display_name": "Officer"}}, "conversation_id": "broken_unknown_next", "start_node": "hello",
+ "nodes": {"hello": {"speaker": "officer", "text": "Hi.", "responses": [{"id": "go", "text": "Go.", "next": "missing_node"}]}}}

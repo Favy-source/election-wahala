@@ -1,0 +1,2 @@
+{"schema_version": 1, "content_status": "placeholder", "speakers": {"officer": {"display_name": "Officer"}}, "conversation_id": "broken_duplicate_response", "start_node": "hello",
+ "nodes": {"hello": {"speaker": "officer", "text": "Hi.", "responses": [{"id": "bye", "text": "Bye.", "end": true}, {"id": "bye", "text": "Bye again.", "end": true}]}}}
