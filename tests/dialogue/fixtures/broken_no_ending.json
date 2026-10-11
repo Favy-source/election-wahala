@@ -1,0 +1,4 @@
+{"schema_version": 1, "content_status": "placeholder", "speakers": {"officer": {"display_name": "Officer"}},
+ "conversation_id": "broken_no_ending", "start_node": "hello",
+ "nodes": {"hello": {"speaker": "officer", "text": "Hi.", "responses": [{"id": "again", "text": "Again.", "next": "loop"}, {"id": "bye", "text": "Bye.", "end": true}]},
+           "loop": {"speaker": "officer", "text": "Round and round.", "responses": [{"id": "again", "text": "Again.", "next": "loop"}]}}}

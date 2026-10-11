@@ -1,0 +1,3 @@
+{"schema_version": 1, "content_status": "placeholder", "speakers": {"officer": {"display_name": "Officer"}}, "conversation_id": "broken_unreachable_node", "start_node": "hello",
+ "nodes": {"hello": {"speaker": "officer", "text": "Hi.", "responses": [{"id": "bye", "text": "Bye.", "end": true}]},
+           "orphan": {"speaker": "officer", "text": "Lost.", "responses": [{"id": "bye", "text": "Bye.", "end": true}]}}}
