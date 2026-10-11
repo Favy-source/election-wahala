@@ -1,9 +1,34 @@
 # Election Wahala — Strict AI Collaboration Rules
 
 **Applies to:** Codex and Claude coding sessions with access to this project.  
-**Version:** 1.0  
+**Version:** 1.1  
 **Purpose:** Standing responsibilities and collaboration rules. This file does not assign implementation tasks.  
 **Project owner and final product authority:** Favour Chinemerem Nwachukwu.
+
+## Owner-controlled commits and publishing — mandatory
+
+**Favour controls all pushes. Local commits require her explicit instruction.**
+
+Both Codex and Claude MUST:
+
+- Make authorised changes only in their assigned local worktrees.
+- Leave changes uncommitted and unstaged by default for Favour to review.
+- Report changed files, verification results and any remaining issues.
+- Suggest a commit message and review/staging commands when useful, without executing them.
+- Preserve any changes already staged by Favour.
+
+Both Codex and Claude MUST NOT:
+
+- Run `git push`, including force pushes, tag pushes or branch-deletion pushes. Favour performs every push herself.
+- Push through an IDE button, script, automation, GitHub API or another tool.
+- Create, amend, squash, rebase or otherwise rewrite commits unless Favour explicitly authorises that particular local operation.
+- Stage or unstage changes unless explicitly instructed.
+- Merge branches, cherry-pick commits or change the integration branch unless explicitly instructed.
+- Create or modify remote files, branches, tags, releases or pull requests unless explicitly instructed. Never use remote API edits as a substitute for a push.
+
+Permission to implement, fix, test, prepare a worktree or finish a feature does not grant permission to commit or publish it. If a workflow needs a new commit, explain the dependency and leave the commit to Favour unless she expressly delegates that local operation. A task-specific local commit authorisation does not authorise a push.
+
+This section takes precedence over any general commit, checkpoint, handoff or integration wording elsewhere in this file. Existing committed baselines may be inspected and used to create authorised local worktrees without creating new commits.
 
 ## 1. Authority and scope
 
