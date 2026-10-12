@@ -1,0 +1,100 @@
+{
+	"schema_version": 1,
+	"conversation_id": "polling_officer_intro",
+	"content_status": "placeholder",
+	"notes": "PROVISIONAL story content for the shared interaction-dialogue contract v1 test. Election-morning exchange at the fictional Polling Unit 001. Wording, Nigerian English/Pidgin usage, officer title and any procedural detail need story, cultural and procedure review before use. Deliberately avoids real institution names, times and step-by-step voting procedure.",
+	"speakers": {
+		"polling_officer": {
+			"display_name": "Polling Officer"
+		}
+	},
+	"start_node": "greeting",
+	"nodes": {
+		"greeting": {
+			"speaker": "polling_officer",
+			"text": "Good morning, you're welcome. You came early o. We are still setting up. Are you here to vote?",
+			"responses": [
+				{
+					"id": "here_to_vote",
+					"text": "Yes, I came to vote.",
+					"next": "wait_instructions"
+				},
+				{
+					"id": "ask_unit",
+					"text": "Is this Polling Unit 001?",
+					"next": "confirm_unit"
+				},
+				{
+					"id": "just_passing",
+					"text": "No, I'm just passing.",
+					"next": "farewell_passing"
+				}
+			]
+		},
+		"confirm_unit": {
+			"speaker": "polling_officer",
+			"text": "Yes, this is Polling Unit 001, here in the school. If this is where you registered, you are in the right place.",
+			"responses": [
+				{
+					"id": "here_to_vote",
+					"text": "Good. I came to vote.",
+					"next": "wait_instructions"
+				},
+				{
+					"id": "just_passing",
+					"text": "Okay. I was only asking.",
+					"next": "farewell_passing"
+				}
+			]
+		},
+		"wait_instructions": {
+			"speaker": "polling_officer",
+			"text": "No wahala. Keep your card with you and wait under the canopy where there is shade. When everything is ready, we will announce it so everybody hears.",
+			"responses": [
+				{
+					"id": "will_wait",
+					"text": "Okay, I'll wait.",
+					"next": "farewell_wait"
+				},
+				{
+					"id": "come_back_later",
+					"text": "I'll come back a bit later.",
+					"next": "farewell_later"
+				}
+			]
+		},
+		"farewell_wait": {
+			"speaker": "polling_officer",
+			"text": "Thank you. Don't go far.",
+			"responses": [
+				{
+					"id": "end_conversation",
+					"text": "Okay.",
+					"end": true
+				}
+			]
+		},
+		"farewell_later": {
+			"speaker": "polling_officer",
+			"text": "That's fine. Just don't come too late, the line will be long.",
+			"responses": [
+				{
+					"id": "end_conversation",
+					"text": "Okay, see you.",
+					"end": true
+				}
+			]
+		},
+		"farewell_passing": {
+			"speaker": "polling_officer",
+			"text": "Alright. Have a good day.",
+			"responses": [
+				{
+					"id": "end_conversation",
+					"text": "You too.",
+					"end": true
+				}
+			]
+		}
+	}
+}
