@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/characters/civilian_visual.gd" id="1_visual"]
+[ext_resource type="PackedScene" path="res://assets/characters/quaternius/casual_civilian.glb" id="2_model"]
+
+[node name="PlayerHumanVisual" type="Node3D"]
+script = ExtResource("1_visual")
+hide_when_camera_close = true
+
+[node name="Model" type="Node3D" parent="."]
+rotation = Vector3(0, 3.1415927, 0)
+
+[node name="CasualCivilian" parent="Model" instance=ExtResource("2_model")]
