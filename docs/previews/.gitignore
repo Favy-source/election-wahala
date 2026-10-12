@@ -1,0 +1,12 @@
+# Review artifacts kept on disk but out of Git (owner decision, 12 October 2026).
+# Tracked in this folder: courtyard_review.md and courtyard_check/base.png.
+/Election_Wahala_Compact_Dialogue_Box.pdf
+/compact_dialogue_box.html
+/compact_dialogue_box_print.html
+/compact_layout/
+/courtyard_check/click.png
+/courtyard_check/keys.png
+/courtyard_check/large.png
+/courtyard_check/scroll_tiny.png
+/courtyard_check/small43.png
+/courtyard_check/tiny.png

@@ -3,17 +3,32 @@
 [ext_resource type="Script" path="res://scripts/dialogue/dialogue_panel.gd" id="1_panel"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBox_Frame"]
-content_margin_left = 24.0
-content_margin_top = 18.0
-content_margin_right = 24.0
-content_margin_bottom = 20.0
+content_margin_left = 16.0
+content_margin_top = 10.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
 bg_color = Color(0.09, 0.11, 0.1, 0.92)
-border_width_top = 3
+border_width_top = 2
 border_color = Color(0.36, 0.52, 0.43, 1)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_ResponseFocus"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.62, 0.82, 0.69, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="Theme" id="Theme_Panel"]
+Button/styles/focus = SubResource("StyleBox_ResponseFocus")
 
 [node name="DialoguePanel" type="Control"]
 layout_mode = 3
@@ -22,41 +37,53 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_Panel")
 script = ExtResource("1_panel")
 
 [node name="Frame" type="PanelContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.08
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 0.92
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = -24.0
-offset_bottom = -24.0
+offset_left = -340.0
+offset_top = -20.0
+offset_right = 340.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBox_Frame")
 
 [node name="Content" type="VBoxContainer" parent="Frame"]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 6
 
 [node name="SpeakerLabel" type="Label" parent="Frame/Content"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.62, 0.82, 0.69, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "Speaker"
 
 [node name="BodyLabel" type="Label" parent="Frame/Content"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.93, 0.93, 0.89, 1)
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 20
 text = "Dialogue text"
 autowrap_mode = 3
 
-[node name="ResponseList" type="VBoxContainer" parent="Frame/Content"]
+[node name="ResponseScroll" type="ScrollContainer" parent="Frame/Content"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = 6
+focus_mode = 0
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="ResponseList" type="VBoxContainer" parent="Frame/Content/ResponseScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
