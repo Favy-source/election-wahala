@@ -1,0 +1,48 @@
+{
+  "source_sha256": "55c654d09a2a5ff6e3bd6158d4a1b462f181cd6f1e12a0f5e9d959f9c3abc438",
+  "derivative_sha256": "459813f85f717da0ec9edd66d54339b809777ef34c39ba43c3560d36bf2cdc49",
+  "source_bytes": 3058092,
+  "derivative_bytes": 800552,
+  "meshes": 4,
+  "mesh_names": [
+    "Cube.010",
+    "Cube.003",
+    "Cube.015",
+    "Cube.019"
+  ],
+  "mesh_node_names": [
+    "Casual2_Body",
+    "Casual2_Feet",
+    "Casual2_Head",
+    "Casual2_Legs"
+  ],
+  "primitives": 10,
+  "triangles": 5776,
+  "vertices_in_primitives": 11660,
+  "materials": [
+    "Skin",
+    "LightBrown",
+    "Red_Dark",
+    "White",
+    "Skin_Darker",
+    "Eyebrows",
+    "Hair",
+    "Eye",
+    "LightBlue"
+  ],
+  "joints": [
+    62
+  ],
+  "clip_duration_seconds": {
+    "idle": 1.6666666666666667,
+    "walk": 1.3333333333333333,
+    "run": 0.8
+  },
+  "accessors": 408,
+  "buffer_views": 408,
+  "source_release_page": "https://quaternius.com/packs/ultimatemodularcharacters.html",
+  "source_release_folder": "https://drive.google.com/drive/folders/1USAAquX2JJWuA2m6zol0KUkFe3UkZ8zX",
+  "source_download": "https://drive.google.com/uc?export=download&id=1Jn7kULNmrtqP8BUUL19h8MhbdOnwPFhv",
+  "license_download": "https://drive.google.com/uc?export=download&id=1TTvylHa1CsiJuHFWWiv6PFGhLM-aAH5z",
+  "license_sha256": "e8dbf915a2b82229913e301a0787696611241bdefec4832bc084f54161db1efe"
+}

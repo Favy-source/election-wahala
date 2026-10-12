@@ -4,9 +4,9 @@
 
 [ext_resource type="ArrayMesh" path="res://assets/meshes/moulded_plastic_chair.tres" id="Mesh_MouldedChair"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6mwan"]
+[ext_resource type="PackedScene" path="res://scenes/characters/player_human_visual.tscn" id="Human_PlayerVisual"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ds08m"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6mwan"]
 
 [sub_resource type="StandardMaterial3D" id="Site_WarmSand"]
 resource_name = "MutedSandySoil"
@@ -699,8 +699,8 @@ script = ExtResource("1_85fnn")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=584893575]
 shape = SubResource("CapsuleShape3D_6mwan")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=1948657490]
-mesh = SubResource("CapsuleMesh_ds08m")
+[node name="CharacterVisual" parent="Player" instance=ExtResource("Human_PlayerVisual")]
+position = Vector3(0, -1, 0)
 
 [node name="CameraPivot" type="Node3D" parent="Player"]
 position = Vector3(0, 0.6, 0)
