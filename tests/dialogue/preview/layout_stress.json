@@ -1,0 +1,11 @@
+{"schema_version": 1, "conversation_id": "layout_stress", "content_status": "placeholder",
+ "speakers": {"polling_officer": {"display_name": "Polling Officer"}},
+ "start_node": "long",
+ "nodes": {"long": {"speaker": "polling_officer",
+   "text": "Layout stress test only. This line is deliberately long so it has to wrap across several lines: we are still arranging the canopy, the table and the chairs, and when everything is ready we will announce it so that everybody waiting under the shade can hear it clearly.",
+   "responses": [
+     {"id": "a", "text": "A deliberately long response choice that should wrap onto a second line rather than being cut off at the edge of the box.", "end": true},
+     {"id": "b", "text": "Second choice.", "end": true},
+     {"id": "c", "text": "Third choice, also somewhat longer than usual to check wrapping inside the button.", "end": true},
+     {"id": "d", "text": "Fourth choice.", "end": true},
+     {"id": "e", "text": "Fifth choice, to check that many options stay reachable on a small window.", "end": true}]}}}

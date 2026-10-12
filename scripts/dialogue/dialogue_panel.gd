@@ -13,9 +13,15 @@ signal response_selected(conversation_id: StringName, node_id: StringName, respo
 signal conversation_closed(conversation_id: StringName)
 
 const DialogueLibrary := preload("res://scripts/dialogue/dialogue_library.gd")
-const RESPONSE_FONT_SIZE: int = 20
-## Large enough to tap comfortably on a touch screen.
-const RESPONSE_MIN_HEIGHT: float = 44.0
+const RESPONSE_FONT_SIZE: int = 18
+## Comfortable click target that keeps the box compact.
+const RESPONSE_MIN_HEIGHT: float = 34.0
+## The panel is centred near the bottom, never wider than this, and keeps at
+## least SIDE_MARGIN from each screen edge on narrow windows.
+const MAX_PANEL_WIDTH: float = 680.0
+const SIDE_MARGIN: float = 16.0
+## Share of the screen height the responses may fill before they scroll.
+const MAX_RESPONSE_HEIGHT_RATIO: float = 0.4
 
 ## Folder holding one <conversation_id>.json file per conversation.
 @export_dir var dialogue_directory: String = "res://data/dialogue"
@@ -34,10 +40,15 @@ var _generation: int = 0
 @onready var _speaker_label: Label = %SpeakerLabel
 @onready var _body_label: Label = %BodyLabel
 @onready var _response_list: VBoxContainer = %ResponseList
+@onready var _response_scroll: ScrollContainer = %ResponseScroll
+@onready var _frame: PanelContainer = %Frame
 
 
 func _ready() -> void:
 	hide()
+	resized.connect(_update_layout)
+	_response_list.minimum_size_changed.connect(_update_response_scroll_height)
+	_update_layout()
 
 
 func open_conversation(conversation_id: StringName) -> bool:
@@ -113,7 +124,12 @@ func _enable_selection(generation: int) -> void:
 		return
 	_accepting_selection = true
 	if _response_list.get_child_count() > 0:
+		# The list may still be settling its size, so follow_focus would scroll
+		# against stale geometry. Start at the top, then follow later moves.
+		_response_scroll.follow_focus = false
 		(_response_list.get_child(0) as Button).grab_focus()
+		_response_scroll.scroll_vertical = 0
+		_response_scroll.set_deferred(&"follow_focus", true)
 
 
 func _on_response_pressed(generation: int, response_id: StringName) -> void:
@@ -137,6 +153,20 @@ func _clear_responses() -> void:
 		button.disabled = true
 		_response_list.remove_child(button)
 		button.queue_free()
+
+
+func _update_layout() -> void:
+	var width := minf(size.x - SIDE_MARGIN * 2.0, MAX_PANEL_WIDTH)
+	_frame.offset_left = -width / 2.0
+	_frame.offset_right = width / 2.0
+	_update_response_scroll_height()
+
+
+## Shows every response when they fit; past the height limit the list scrolls,
+## and follow_focus keeps the focused response visible.
+func _update_response_scroll_height() -> void:
+	var needed := _response_list.get_combined_minimum_size().y
+	_response_scroll.custom_minimum_size.y = minf(needed, size.y * MAX_RESPONSE_HEIGHT_RATIO)
 
 
 ## Up from the first response wraps to the last, and down from the last to the first.

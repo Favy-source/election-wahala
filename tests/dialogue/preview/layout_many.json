@@ -1,0 +1,69 @@
+{
+ "schema_version": 1,
+ "conversation_id": "layout_many",
+ "content_status": "placeholder",
+ "speakers": {
+  "polling_officer": {
+   "display_name": "Polling Officer"
+  }
+ },
+ "start_node": "many",
+ "nodes": {
+  "many": {
+   "speaker": "polling_officer",
+   "text": "Layout test only: ten choices, to check that the list scrolls instead of covering the screen.",
+   "responses": [
+    {
+     "id": "choice_01",
+     "text": "Choice 1.",
+     "end": true
+    },
+    {
+     "id": "choice_02",
+     "text": "Choice 2.",
+     "end": true
+    },
+    {
+     "id": "choice_03",
+     "text": "Choice 3, with extra words so this one wraps inside its button on a narrow window.",
+     "end": true
+    },
+    {
+     "id": "choice_04",
+     "text": "Choice 4.",
+     "end": true
+    },
+    {
+     "id": "choice_05",
+     "text": "Choice 5.",
+     "end": true
+    },
+    {
+     "id": "choice_06",
+     "text": "Choice 6, with extra words so this one wraps inside its button on a narrow window.",
+     "end": true
+    },
+    {
+     "id": "choice_07",
+     "text": "Choice 7.",
+     "end": true
+    },
+    {
+     "id": "choice_08",
+     "text": "Choice 8.",
+     "end": true
+    },
+    {
+     "id": "choice_09",
+     "text": "Choice 9, with extra words so this one wraps inside its button on a narrow window.",
+     "end": true
+    },
+    {
+     "id": "choice_10",
+     "text": "Choice 10.",
+     "end": true
+    }
+   ]
+  }
+ }
+}

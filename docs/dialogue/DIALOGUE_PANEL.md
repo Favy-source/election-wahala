@@ -37,6 +37,7 @@ The panel never touches the player, mouse mode, movement, quests, money, invento
 - Instance the scene under a `CanvasLayer`. The root is a full-rect `Control` with the default `MOUSE_FILTER_STOP`, so while visible it blocks clicks from reaching gameplay (for example `player.gd` recapturing the mouse on left-click). It is hidden when closed.
 - The panel owns focus and navigation inside itself (built-in `ui_up`/`ui_down`/`ui_focus_next`/`ui_accept`; first and last responses wrap). Arrow keys are also bound to movement in `project.godot` and are read by polling, so gameplay must be locked by the interaction owner while a conversation is open. The panel does not swallow every key: for example, a keyboard Enter press on a focused button still reaches `_unhandled_input` because the button activates on release.
 - Response buttons are named `Response_<response_id>`.
+- Layout: the box is centred 20 px above the bottom edge, at most 680 px wide, and keeps 16 px side margins on narrow screens (`MAX_PANEL_WIDTH`, `SIDE_MARGIN`). Text and choices wrap. If the responses would fill more than 40% of the screen height (`MAX_RESPONSE_HEIGHT_RATIO`), they scroll, and focus moves keep the selected choice in view. Sizes are logical pixels, so the project's `canvas_items` stretch scales the box with the window.
 
 ## Data format (schema_version 1)
 
