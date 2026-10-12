@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="PackedScene" path="res://polling_unit.tscn" id="1_world"]
+[ext_resource type="Script" path="res://scripts/interaction/interaction_target.gd" id="2_target"]
+[ext_resource type="PackedScene" path="res://tests/interaction/dialogue_panel_substitute.tscn" id="3_panel"]
+[ext_resource type="PackedScene" path="res://scenes/interaction/interaction_controller.tscn" id="4_controller"]
+
+[sub_resource type="CapsuleShape3D" id="TargetShape"]
+radius = 0.35
+height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="TargetMaterial"]
+albedo_color = Color(0.22, 0.45, 0.58, 1)
+roughness = 0.9
+
+[sub_resource type="CapsuleMesh" id="TargetMesh"]
+material = SubResource("TargetMaterial")
+radius = 0.35
+height = 1.8
+radial_segments = 16
+rings = 4
+
+[node name="InteractionPlaytest" type="Node3D"]
+
+[node name="PollingUnit" parent="." instance=ExtResource("1_world")]
+
+[node name="PollingOfficerPlaceholder" type="StaticBody3D" parent="."]
+position = Vector3(3.8, 0, 0)
+script = ExtResource("2_target")
+target_id = &"polling_officer_test_target"
+conversation_id = &"polling_officer_intro"
+display_name = "Polling officer (test placeholder)"
+
+[node name="Collision" type="CollisionShape3D" parent="PollingOfficerPlaceholder"]
+position = Vector3(0, 0.9, 0)
+shape = SubResource("TargetShape")
+
+[node name="TemporaryCapsule" type="MeshInstance3D" parent="PollingOfficerPlaceholder"]
+position = Vector3(0, 0.9, 0)
+mesh = SubResource("TargetMesh")
+
+[node name="PlaceholderLabel" type="Label3D" parent="PollingOfficerPlaceholder"]
+position = Vector3(0, 2.3, 0)
+billboard = 1
+font_size = 40
+outline_size = 8
+pixel_size = 0.007
+text = "TEST TARGET\nPolling officer"
+shaded = false
+
+[node name="DialoguePanelSubstitute" parent="." instance=ExtResource("3_panel")]
+
+[node name="InteractionController" parent="." instance=ExtResource("4_controller")]
+player_path = NodePath("../PollingUnit/Player")
+dialogue_panel_path = NodePath("../DialoguePanelSubstitute")
+
+[node name="TestInstructions" type="CanvasLayer" parent="."]
+layer = 30
+
+[node name="Hint" type="Label" parent="TestInstructions"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = -16.0
+offset_bottom = 70.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 18
+text = "INTERACTION CONTRACT TEST — temporary target and dialogue\nWalk to the labelled capsule beside the canopy. E: interact. Escape: cancel dialogue."
+horizontal_alignment = 1
+autowrap_mode = 3

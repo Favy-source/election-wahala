@@ -1,0 +1,16 @@
+{
+  "conversations": {
+    "polling_officer_intro": {
+      "start_node": "intro",
+      "nodes": {
+        "intro": {
+          "text": "Technical dialogue substitute. This verifies the shared interaction interface; it is not authored polling-officer dialogue.",
+          "response": {
+            "id": "test_response",
+            "text": "Accept test response and return to gameplay"
+          }
+        }
+      }
+    }
+  }
+}
